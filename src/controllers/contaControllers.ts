@@ -1,34 +1,44 @@
 import { Request, Response, NextFunction } from "express"
 import { prisma } from "../metodosGerais"
 
-export const criar = async (req:Request, res:Response, next:NextFunction)=>{
-   const {nome, email, senha} = req.body 
-   try {
-     res.json({nome, email})
-   } catch (error) {
-    res.json(error)
-   }
-}
 
 export const listar = async (req:Request, res:Response, next:NextFunction)=>{
     const usuario =await prisma.conta.findMany({
       include:{
-        usuario:true
+        usuario:{
+          select:{
+            nome:true,
+            email:true
+          }
+        }
       }
     })
     try {
       res.json(usuario)
     } catch (error) {
-     res.json(error)
+      res.status(400).json(error)
     }
 }
 
 export const listaPorId = async (req:Request, res:Response, next:NextFunction)=>{
     const id = req.params.id
+    const usuario =await prisma.conta.findUnique({
+      where:{
+        id
+      },
+      include:{
+        usuario:{
+          select:{
+            nome:true,
+            email:true
+          }
+        }
+      }
+    })
     try {
-      res.json("criar")
+      res.json(usuario)
     } catch (error) {
-     res.json(error)
+      res.status(400).json(error)
     }
 }
 
@@ -108,15 +118,6 @@ export const transferencia = async (req:Request, res:Response, next:NextFunction
       }
       res.json(resposta)
     } catch (error) {
-     res.json(error)
-    }
-}
-
-export const deletar = async (req:Request, res:Response, next:NextFunction)=>{
-    const id = req.params.id
-    try {
-      res.json("criar")
-    } catch (error) {
-     res.json(error)
+      res.status(400).json(error)
     }
 }
