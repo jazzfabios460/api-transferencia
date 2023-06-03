@@ -7,3 +7,9 @@
 #### Métodos GET
 * Listar todos os usuários = https://api-transferencia-2v17l5uoh-jazzfabios460.vercel.app/usuario
 * Listar usuário por id = https://api-transferencia-2v17l5uoh-jazzfabios460.vercel.app/usuario/id_do_usuario
+#### Métodos POST
+* Criar usuário = https://api-transferencia-2v17l5uoh-jazzfabios460.vercel.app/usuario
+   {
+    "nome":"nome do usuario",
+    "email":"email do susuario"
+   }
