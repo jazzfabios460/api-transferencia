@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model usuario {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  nome String @unique
+  email String
+  senha String
+  conta conta[]
+}
+
+model conta {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  saldo Float
+  id_usuario String @db.ObjectId
+  usuario usuario @relation(fields: [id_usuario],references: [id], onDelete:Cascade, onUpdate:Cascade)
+}
