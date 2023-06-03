@@ -11,5 +11,6 @@
 * Criar usuário = https://api-transferencia-2v17l5uoh-jazzfabios460.vercel.app/usuario
    {
     "nome":"nome do usuario",
-    "email":"email do susuario"
+    "email":"email do susuario",
+    "senha":"senha do susuario"
    }
