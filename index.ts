@@ -10,5 +10,5 @@ router.forEach(r=>{
     return app.use(r.endopoint, r.route)
 })
 
-app.use("/", swaggerUI.serve, swaggerUI.setup(swaggerDocument))
+app.use("/swagger", swaggerUI.serve, swaggerUI.setup(swaggerDocument))
 app.listen(4000,()=>console.log('rodando na porta 4000'))

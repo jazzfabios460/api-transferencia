@@ -4,8 +4,8 @@ import { atualizar, criar, deletar, listaPorId, listar } from "../controllers/us
 const usuarioRouter =  Router()
 usuarioRouter.get("/listar",listar)
 usuarioRouter.post("/criar",criar)
-usuarioRouter.put("/:id",atualizar)
-usuarioRouter.delete("/:id",deletar)
+usuarioRouter.put("/atualizar/:id",atualizar)
+usuarioRouter.delete("/deletar/:id",deletar)
 usuarioRouter.get("/:id",listaPorId)
 
 export default usuarioRouter
