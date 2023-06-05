@@ -3,7 +3,7 @@ import { prisma } from "../metodosGerais"
 
 // Ao criar um usuário, também é criado uma conta, não faz sentido existir usuario sem conta!
 export const criar = async (req:Request, res:Response, next:NextFunction)=>{
-   const {nome, email, senha} = req.body 
+   const {nome, email, senha}:any = req.query  
    try {
      await prisma.usuario.create({
       data:{
@@ -45,7 +45,8 @@ export const listar = async (req:Request, res:Response, next:NextFunction)=>{
               saldo:true
             }
           }
-        }
+        },
+        
       })
       res.json(usuario)
     } catch (error) {
