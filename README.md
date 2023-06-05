@@ -1,6 +1,8 @@
 # Api de Transferência financeira
 
-## Abaixo esta a lista dos endpoints
+## Abaixo esta a lista dos endpoints de 2 formas
+* Usando  a documentação do Sweggar = https://api-transferencia.vercel.app/swagger/
+* Usando a forma direta como no documento abaixo
 
 ### Usuários
 #### Métodos GET, listando usuários
@@ -23,3 +25,5 @@ link: https://api-transferencia.vercel.app/usuario/atualizar/id
     "email":"email do usuario",
     "senha":"senha do usuario"
    }
+
+### Conta
