@@ -3,11 +3,21 @@
 ## Abaixo esta a lista dos endpoints
 
 ### Usuários
-#### Métodos GET
-* Listar todos os usuários = https://api-transferencia-2v17l5uoh-jazzfabios460.vercel.app/usuario
-* Listar usuário por id = https://api-transferencia-2v17l5uoh-jazzfabios460.vercel.app/usuario/id_do_usuario
-#### Métodos POST 
-link: https://api-transferencia-2v17l5uoh-jazzfabios460.vercel.app/usuario
+#### Métodos GET, listando usuários
+* Listar todos os usuários = https://api-transferencia.vercel.app/usuario/listar
+* Listar usuário por id = https://api-transferencia.vercel.app/usuario/listar/id
+#### Métodos POST, cadastrando usuários 
+link: https://api-transferencia.vercel.app/usuario/criar
+*  {
+    "nome":"nome do usuario",
+    "email":"email do usuario",
+    "senha":"senha do usuario"
+   }
+
+#### Métodos DELETE, excluindo usuários    
+link: https://api-transferencia.vercel.app/usuario/deletar/id
+#### Métodos PUT, atualizando usuários    
+link: https://api-transferencia.vercel.app/usuario/atualizar/id
 *  {
     "nome":"nome do usuario",
     "email":"email do usuario",
