@@ -6,6 +6,6 @@ usuarioRouter.get("/listar",listar)
 usuarioRouter.post("/criar",criar)
 usuarioRouter.put("/atualizar/:id",atualizar)
 usuarioRouter.delete("/deletar/:id",deletar)
-usuarioRouter.get("/:id",listaPorId)
+usuarioRouter.get("/listar/:id",listaPorId)
 
 export default usuarioRouter
