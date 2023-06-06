@@ -43,8 +43,14 @@ export const listaPorId = async (req:Request, res:Response, next:NextFunction)=>
 }
 
 export const transferencia = async (req:Request, res:Response, next:NextFunction)=>{
-    
-    const {valor, idPagador, idCobrador} = req.body 
+    const {valorq, idPagadorq, idCobradorq} = req.query 
+    let {valor, idPagador, idCobrador} = req.body 
+    if (valorq && idCobradorq && idPagadorq) {
+      valor = valorq
+      idCobrador = idCobradorq
+      idPagador = idPagadorq
+    }
+    console.log({valor,idCobrador,idPagador})
     let resposta:any = ""
     try {
       const saldo = await prisma.usuario.findUnique({

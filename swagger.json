@@ -41,20 +41,20 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "nome": {
+                    "nomeQuery": {
                       "type": "string"
                     },
-                    "email": {
+                    "emailQuery": {
                       "type": "string"
                     },
-                    "senha": {
+                    "senhaQuery": {
                       "type": "string"
                     }
                   },
                   "example": {
-                    "nome": "admin",
-                    "email": "admin@gmail.com",
-                    "senha": "admin"
+                    "nomeQuery": "admin",
+                    "emailQuery": "admin@gmail.com",
+                    "senhaQuery": "admin"
                   }
                 }
               }
@@ -63,19 +63,19 @@
           "parameters": [
             {
               "in": "query",
-              "name": "nome",
+              "name": "nomeQuery",
               "type": "string",
               "required": true
             },
             {
                 "in": "query",
-                "name": "email",
+                "name": "emailQuery",
                 "type": "string",
                 "required": true
             },
               {
                 "in": "query",
-                "name": "senha",
+                "name": "senhaQuery",
                 "type": "string",
                 "required": true
               }
