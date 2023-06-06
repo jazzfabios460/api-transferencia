@@ -4,29 +4,30 @@ import Jwt from 'jsonwebtoken'
 require('dotenv').config()
 const secretKey = process.env.secretkey || ""
 export const autenticar = async (req:Request, res:Response, next:NextFunction)=>{
-    try {
-        const {email, senha} = req.body
-        const usuario =await prisma.usuario.findFirst({
-           where:{
-              email,senha
-           },
-           select:{
-            email:true,
-            nome:true,
-            id:true
-           }
-        })
-        if (usuario) {
-            res.json({
-                token:Jwt.sign({user:usuario?.nome},secretKey,{expiresIn:"1d"}),
-                usuario
-            })
-        }else{
-            res.status(401).json("Usuario ou senha inválidos!")
-        }
-      } catch (error) {
-        res.status(400).json(error)
-      }
+    const {email, senha} = req.body
+    res.json({email})
+    // try {
+    //     const usuario =await prisma.usuario.findFirst({
+    //        where:{
+    //           email,senha
+    //        },
+    //        select:{
+    //         email:true,
+    //         nome:true,
+    //         id:true
+    //        }
+    //     })
+    //     if (usuario) {
+    //         res.json({
+    //             token:Jwt.sign({user:usuario?.nome},secretKey,{expiresIn:"1d"}),
+    //             usuario
+    //         })
+    //     }else{
+    //         res.status(401).json("Usuario ou senha inválidos!")
+    //     }
+    //   } catch (error) {
+    //     res.status(400).json(error)
+    //   }
   }
 
   export const autorizacao = async (req:Request, res:Response, next:NextFunction)=>{
