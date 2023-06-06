@@ -5,6 +5,7 @@ require('dotenv').config()
 const secretKey = process.env.secretkey || ""
 export const autenticar = async (req:Request, res:Response, next:NextFunction)=>{
     const {email, senha} = req.body
+    let resposta = ""
     try {
         const usuario =await prisma.usuario.findFirst({
            where:{
@@ -16,14 +17,15 @@ export const autenticar = async (req:Request, res:Response, next:NextFunction)=>
             id:true
            }
         })
-        if (usuario) {
-            res.json({
-                token:Jwt.sign({user:usuario?.nome},secretKey,{expiresIn:"1d"}),
-                usuario
-            })
-        }else{
-            res.status(401).json("Usuario ou senha inválidos!")
-        }
+        // if (usuario) {
+        //     res.json({
+        //         token:Jwt.sign({user:usuario?.nome},secretKey,{expiresIn:"1d"}),
+        //         usuario
+        //     })
+        // }else{
+        //     res.status(401).json("Usuario ou senha inválidos!")
+        // }
+        res.json(usuario)
       } catch (error) {
         res.status(400).json(error)
       }
