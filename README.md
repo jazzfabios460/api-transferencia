@@ -29,8 +29,8 @@ link: https://api-transferencia.vercel.app/usuario/atualizar/id
 ### Conta
 
 #### Método GET listar as contas 
-link: https://api-transferencia.vercel.app/conta/
+* link: https://api-transferencia.vercel.app/conta/
 #### Método GET listar as contas por id
-link: https://api-transferencia.vercel.app/conta/id
+* link: https://api-transferencia.vercel.app/conta/id
 #### Método PUT transferir dinheiro entre usuários pelos seus ids
-link: https://api-transferencia.vercel.app/conta/transferencia
+* link: https://api-transferencia.vercel.app/conta/transferencia
