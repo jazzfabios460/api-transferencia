@@ -34,14 +34,11 @@ export const autenticar = async (req:Request, res:Response, next:NextFunction)=>
       try {
         const token:any = req.headers["x-access-token"];
         Jwt.verify(token,secretKey,(err:any, e:any)=>{
-           if(err){
-            res.status(401);
-           }else{
-            res.status(200).json("Usuário "+e.user+" está autenticado!")
-           }
+           if(err) res.status(401);
+           res.status(200).json("Usuário "+e.user+" está autenticado!")
         })
         
     } catch (error) {
-        res.status(401).send("não autorizado")
+        res.status(401).json("não autorizado")
     }
   }
