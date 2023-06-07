@@ -56,3 +56,13 @@ link: https://api-transferencia.vercel.app/usuario/atualizar/id
         "x-access-token":token
       },  
 * o token expira em 1 dia      
+* o token é adiquirido ao logar o usuário
+* método fet completo 
+* fetch("https://api-transferencia.vercel.app/autenticacao/autorizacao",{
+      headers:{
+        "Content-Type":"application/json",
+        "x-access-token":token
+      },
+    })
+    .then(r=>r.json())
+    .then(r=>console.log(r))
