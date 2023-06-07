@@ -17,15 +17,14 @@ export const autenticar = async (req:Request, res:Response, next:NextFunction)=>
             id:true
            }
         })
-        res.json({
-            token:Jwt.sign({user:usuario?.nome},secretKey,{expiresIn:"1d"}),
-            usuario
-        })
-        // if (usuario) {
-        // }else{
-        //     res.status(401).json("Usuario ou senha inválidos!")
-        // }
-        // res.json(usuario)
+        if (usuario) {
+            res.json({
+                // token:Jwt.sign({user:usuario?.nome},secretKey,{expiresIn:"1d"}),
+                usuario
+            })
+        }else{
+            res.status(401).json("Usuario ou senha inválidos!")
+        }
       } catch (error) {
         res.status(400).json(error)
       }
