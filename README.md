@@ -34,3 +34,10 @@ link: https://api-transferencia.vercel.app/usuario/atualizar/id
 * link: https://api-transferencia.vercel.app/conta/id
 #### Método PUT transferir dinheiro entre usuários pelos seus ids
 * link: https://api-transferencia.vercel.app/conta/transferencia
+* {
+	"idPagador":"647bf5915aa29f64d71eda7e",
+    "idCobrador":"647d0cd1ba3efd3956da6095",
+    "valor":10
+  }
+
+### Autenticação 
