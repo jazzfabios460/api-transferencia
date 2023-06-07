@@ -19,7 +19,7 @@ export const autenticar = async (req:Request, res:Response, next:NextFunction)=>
         })
         if (usuario) {
             res.json({
-                token:Jwt.sign({user:usuario?.nome},"fshdshakkjssssss",{expiresIn:"1d"}),
+                token:Jwt.sign({user:usuario?.nome},secretKey,{expiresIn:"1d"}),
                 usuario
             })
         }else{
