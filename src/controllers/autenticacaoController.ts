@@ -35,7 +35,7 @@ export const autenticar = async (req:Request, res:Response, next:NextFunction)=>
         const token:any = req.headers["x-access-token"];
         Jwt.verify(token,secretKey,(err:any, e:any)=>{
            if(err) res.status(401);
-           res.json("Usuário "+e.user+" está autenticado!")
+           res.status(200).json("Usuário "+e.user+" está autenticado!")
         })
         
     } catch (error) {
