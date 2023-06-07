@@ -35,9 +35,24 @@ link: https://api-transferencia.vercel.app/usuario/atualizar/id
 #### Método PUT transferir dinheiro entre usuários pelos seus ids
 * link: https://api-transferencia.vercel.app/conta/transferencia
 * {
-	"idPagador":"647bf5915aa29f64d71eda7e",
-    "idCobrador":"647d0cd1ba3efd3956da6095",
-    "valor":10
+	"idPagador":"id do pagador",
+    "idCobrador":"id do cobrador",
+    "valor":valor numerico
   }
 
 ### Autenticação 
+
+#### Método POST logar o usuário
+* link: https://api-transferencia.vercel.app/autenticacao/login
+* {
+	"email":"email cadastrado",
+	"senha":"senha cadastrada"
+  }
+#### Método GET autenticação de usuário
+* link: https://api-transferencia.vercel.app/autenticacao/autorizacao
+* este endpoint retorna se o usuário esta autenticado passando o token no headers da requisição da seguinte forma
+*     headers:{
+        "Content-Type":"application/json",
+        "x-access-token":token
+      },  
+* o token expira em 1 dia      
