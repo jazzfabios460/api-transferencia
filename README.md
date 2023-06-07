@@ -64,5 +64,4 @@ link: https://api-transferencia.vercel.app/usuario/atualizar/id
         "x-access-token":token
       },
     })
-    .then(r=>r.json())
-    .then(r=>console.log(r))
+    .then(r=>r.status)
