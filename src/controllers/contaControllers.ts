@@ -43,12 +43,12 @@ export const listaPorId = async (req:Request, res:Response, next:NextFunction)=>
 }
 
 export const transferencia = async (req:Request, res:Response, next:NextFunction)=>{
-    const {valorq, idPagadorq, idCobradorq} = req.query 
+    let {valor_query, idPagador_query, idCobrador_query}:any = req.query 
     let {valor, idPagador, idCobrador} = req.body 
-    if (valorq && idCobradorq && idPagadorq) {
-      valor = valorq
-      idCobrador = idCobradorq
-      idPagador = idPagadorq
+    if (valor_query && idCobrador_query && idPagador_query) {
+      valor = parseFloat(valor_query)
+      idCobrador = idCobrador_query
+      idPagador = idPagador_query
     }
     console.log({valor,idCobrador,idPagador})
     let resposta:any = ""

@@ -63,7 +63,11 @@ export const listar = async (req:Request, res:Response, next:NextFunction)=>{
 
 export const listaPorId = async (req:Request, res:Response, next:NextFunction)=>{
   try {
-      const id = req.params.id
+      let id = req.params.id
+      const {id_usuario}:any = req.query
+       if (id_usuario) {
+         id = id_usuario
+       }
       const usuario =await prisma.usuario.findMany({
         select:{
           email:true,

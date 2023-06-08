@@ -30,6 +30,25 @@
           }
         }
       },
+      "/usuario/listarporid/":{
+        "get":{
+          "description":"Listando usuarios pelo id",
+          "tags": ["Listar por id"],
+          "parameters": [
+            {
+              "in": "query",
+              "name": "id_usuario",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
   
       "/usuario/criar": {
         "post": {
@@ -93,8 +112,35 @@
         }
         }
       },
-      "":{
-        
+      "/conta/transferencia":{
+         "put":{
+          "tags": ["transferência monetária"],
+          "parameters":[
+            {
+              "in": "query",
+              "name": "idPagador_query",
+              "type": "string",
+              "required": true
+            },
+            {
+              "in": "query",
+              "name": "idCobrador_query",
+              "type": "string",
+              "required": true
+            },
+            {
+              "in": "query",
+              "name": "valor_query",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+         }
       }
     }
   }
