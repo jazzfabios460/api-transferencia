@@ -14,7 +14,8 @@ export const autenticar = async (req:Request, res:Response, next:NextFunction)=>
            select:{
             email:true,
             nome:true,
-            id:true
+            id:true,
+            conta:true
            }
         })
         if (usuario) {
