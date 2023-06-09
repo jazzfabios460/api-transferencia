@@ -23,4 +23,17 @@ model conta {
   saldo Float
   id_usuario String @db.ObjectId
   usuario usuario @relation(fields: [id_usuario],references: [id], onDelete:Cascade, onUpdate:Cascade)
+  id_transacao String[] @db.ObjectId
+  debito transacao[] @relation("contaDebitada",fields: [id_transacao], references: [id])
+  deposito transacao[] @relation("contaCreditada",fields: [id_transacao], references: [id])
+}
+
+model transacao {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id_conta_pagador String[] @db.ObjectId
+  id_conta_recebidor String[] @db.ObjectId
+  contaDebitada conta[] @relation("contaDebitada",fields: [id_conta_pagador],references: [id])
+  contaCreditada conta[] @relation("contaCreditada",fields: [id_conta_recebidor],references: [id])
+  valorDaTransacao Float
+  data DateTime @updatedAt
 }
