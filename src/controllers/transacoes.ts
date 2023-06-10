@@ -24,7 +24,6 @@ export const transferencia = async (req:Request, res:Response, next:NextFunction
       id_conta_recebidor = idCobrador_query
       id_conta_pagador = idPagador_query
     }
- 
     let resposta:any = ""
     try {
       await prisma.transacao.create({
@@ -36,7 +35,7 @@ export const transferencia = async (req:Request, res:Response, next:NextFunction
       })
       await prisma.conta.update({
         where:{
-            id:idPagador_query
+            id:id_conta_pagador
         },
         data:{
             saldo:{
@@ -46,7 +45,7 @@ export const transferencia = async (req:Request, res:Response, next:NextFunction
       })
       await prisma.conta.update({
         where:{
-            id:idCobrador_query
+            id:id_conta_recebidor
         },
         data:{
             saldo:{
