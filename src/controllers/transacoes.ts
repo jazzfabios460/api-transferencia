@@ -56,35 +56,36 @@ export const transferencia = async (req:Request, res:Response, next:NextFunction
       })
       if (saldoDoPagador?.saldo < valorDaTransacao) {
         res.json("saldo insuficiente!")
+      }else{
+        await prisma.transacao.create({
+          data:{
+              valorDaTransacao,
+              id_conta_pagador,
+              id_conta_recebidor
+          }
+        })
+        await prisma.conta.update({
+          where:{
+              id:id_conta_pagador
+          },
+          data:{
+              saldo:{
+                  decrement:valorDaTransacao
+              }
+          }
+        })
+        await prisma.conta.update({
+          where:{
+              id:id_conta_recebidor
+          },
+          data:{
+              saldo:{
+                  increment:valorDaTransacao
+              }
+          }
+        })
+        res.json("Transação concluida com sucesso!")
       }
-      await prisma.transacao.create({
-        data:{
-            valorDaTransacao,
-            id_conta_pagador,
-            id_conta_recebidor
-        }
-      })
-      await prisma.conta.update({
-        where:{
-            id:id_conta_pagador
-        },
-        data:{
-            saldo:{
-                decrement:valorDaTransacao
-            }
-        }
-      })
-      await prisma.conta.update({
-        where:{
-            id:id_conta_recebidor
-        },
-        data:{
-            saldo:{
-                increment:valorDaTransacao
-            }
-        }
-      })
-      res.json("Transação concluida com sucesso!")
     } catch (error) {
       res.status(400).json(error)
     }
