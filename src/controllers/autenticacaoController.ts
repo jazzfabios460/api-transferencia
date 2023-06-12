@@ -18,7 +18,7 @@ export const autenticar = async (req:Request, res:Response, next:NextFunction)=>
             conta:{
                 include:{
                     debito:true,
-                    deposito:true
+                    deposito:true,
                 }
             }
            },

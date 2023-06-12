@@ -5,8 +5,16 @@ import { prisma } from "../metodosGerais"
 export const listar = async (req:Request, res:Response, next:NextFunction)=>{
     const usuario =await prisma.transacao.findMany({
       include:{
-         contaCreditada:true,
-         contaDebitada:true
+         contaCreditada:{
+          include:{
+            usuario:true
+          }
+         },
+         contaDebitada:{
+          include:{
+            usuario:true
+          }
+         }
       }
     })
     try {

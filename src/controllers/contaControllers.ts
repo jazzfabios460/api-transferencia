@@ -32,7 +32,8 @@ export const listaPorId = async (req:Request, res:Response, next:NextFunction)=>
             nome:true,
             email:true
           }
-        }
+        },
+        
       }
     })
     try {
