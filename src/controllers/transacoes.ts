@@ -7,12 +7,24 @@ export const listar = async (req:Request, res:Response, next:NextFunction)=>{
       include:{
          contaCreditada:{
           include:{
-            usuario:true
+            usuario:{
+              select:{
+                id:true,
+                email:true,
+                nome:true
+              }
+            }
           }
          },
          contaDebitada:{
           include:{
-            usuario:true
+            usuario:{
+              select:{
+                id:true,
+                email:true,
+                nome:true
+              }
+            }
           }
          }
       }
