@@ -46,6 +46,17 @@ export const transferencia = async (req:Request, res:Response, next:NextFunction
     }
     let resposta:any = ""
     try {
+      const saldoDoPagador:any = await prisma.conta.findFirst({
+        where:{
+          id:id_conta_pagador
+        },
+        select:{
+          saldo:true
+        }
+      })
+      if (saldoDoPagador?.saldo < valorDaTransacao) {
+        res.json("saldo insuficiente!")
+      }
       await prisma.transacao.create({
         data:{
             valorDaTransacao,
