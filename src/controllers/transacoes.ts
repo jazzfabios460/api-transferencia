@@ -90,3 +90,17 @@ export const transferencia = async (req:Request, res:Response, next:NextFunction
       res.status(400).json(error)
     }
 }
+
+export const deletar = async (req:Request, res:Response, next:NextFunction)=>{
+   try {
+    const id = req.params.id
+    await prisma.transacao.delete({
+      where:{
+        id
+      }
+    })
+    res.json("Transação deletada com sucesso!")
+   } catch (error) {
+    res.status(400).json({erro:"falha ao deletar transação",motivo:error})
+   }
+}
